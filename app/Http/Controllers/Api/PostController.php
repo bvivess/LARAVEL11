@@ -19,7 +19,7 @@ class PostController extends Controller
         $posts = Post::all();
         // $posts = Post::with(["user", "category"])->get();  // post amb les taules relacionades
         //return response()->json($posts);  // --> torna una resposta serialitzada en format 'json'
-        return PostResource::collection($posts);  // torna una resposta personalitzada
+        return (PostResource::collection($posts))->additional(['meta' => 'Posts mostrats correctament']);  // torna una resposta personalitzada
     }
 
     /**
@@ -28,7 +28,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         // return response()->json($post);
-        return (new PostResource($post))->additional(['meta' => 'Post creat correctament']);
+        return (new PostResource($post))->additional(['meta' => 'Post mostrat correctament']);
     }
 
     /**
@@ -47,7 +47,7 @@ class PostController extends Controller
         //     'data' => $post, // Aquí incloem el post creat
         //     'meta' => 'Post creat correctament', // Metadada personalitzada
         // ], 201); // 201 indica que s'ha creat un nou recurs
-        return new PostResource($post);
+        return (new PostResource($post))->additional(['meta' => 'Post creat correctament']);
     }
 
     /**
@@ -55,8 +55,8 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //  $post->update($request->all());
-        // return (new PostResource($post))->additional(['msg' => 'Post modificat correctament']);
+        $post->update($request->all());
+        return (new PostResource($post))->additional(['meta' => 'Post modificat correctament']);
     }
 
     /**

@@ -30,7 +30,7 @@ class PostResource extends JsonResource
     public function with($request)
     {
         return [
-            'meta' => 'Post ' . $this->id . ' creat correctament',
+            'meta' => 'Post ' . $this->id,
         ];
     }
 
