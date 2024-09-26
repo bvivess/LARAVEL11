@@ -64,14 +64,14 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //  $post->delete();
-        //  return (new PostResource($post))->additional(['msg' => 'Post eliminat correctament']);
+        $post->delete();
+        return (new PostResource($post))->additional(['msg' => 'Post eliminat correctament']);
     }
 
 
-    public function tomeu()    // PER EXEMPLE
+    public function prova()    // PER EXEMPLE
     {
-        return response()->json(['data' => 'Som en Tomeu Sabater.']);
+        return response()->json(['data' => 'Això és una prova']);
     }
     
 }

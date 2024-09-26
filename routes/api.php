@@ -19,7 +19,7 @@ Route::apiResource('/post', PostController::class);  // Les tracta totes
 // Route::put('/posts/{post}', [PostController::class, 'update']); // Actualitzar un post
 // Route::patch('/posts/{post}', [PostController::class, 'update']); // Actualitzar parcialment un post
 // Route::delete('/posts/{post}', [PostController::class, 'destroy']); // Eliminar un post
-// Route::get('/tomeu', [PostController::class, 'tomeu']);  // PER EXEMPLE
+Route::get('/prova', [PostController::class, 'prova']);  // PER EXEMPLE
 
 Route::apiResource('/category', CategoryController::class);
 

@@ -26,7 +26,7 @@ class CategoryResource extends JsonResource
     public function with($request)
     {
         return [
-            'meta' => 'Categoria ' . $this->id . ' creada correctament',
+            'meta' => 'Categoria ' . $this->id ,
         ];
     }
 

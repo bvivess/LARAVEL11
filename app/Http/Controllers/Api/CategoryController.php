@@ -36,23 +36,25 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return (new CategoryResource($category))->additional(['msg' => 'Category creada correctament']);
+        return (new CategoryResource($category))->additional(['meta' => 'Categoria creada correctament']);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->all());
+        return (new CategoryResource($category))->additional(['meta' => 'Categoria modificada correctament']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return (new CategoryResource($category))->additional(['meta' => 'Categoria eliminada correctament']);
     }
-   
+  
 }
