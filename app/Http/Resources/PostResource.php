@@ -16,7 +16,10 @@ class PostResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
+        // sortida rònica de la taula:
+        // return parent::toArray($request);
+
+        return [  // sortida del json de l'api tractada
             'identificador' => $this->id,
             'titol' => Str::upper($this->title),
             'contingut' => $this->when(($this->posted == 'yes'), $this->content),
