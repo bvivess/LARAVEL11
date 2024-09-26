@@ -24,8 +24,7 @@ Route::apiResource('/post', PostController::class);  // Les tracta totes
 Route::apiResource('/category', CategoryController::class);
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    //Route::apiResource('/post', PostController::class);
-    Route::get('/tomeu', [PostController::class, 'tomeu']);
+    // Route::apiResource('/post', PostController::class);
     Route::post('/logout', [AuthController::class, 'logout']);    
 });
 
