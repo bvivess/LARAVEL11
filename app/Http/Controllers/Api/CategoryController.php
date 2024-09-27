@@ -42,7 +42,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(GuardarCategoryRequest $request, Category $category)
     {
         $category->update($request->all());
         return (new CategoryResource($category))->additional(['meta' => 'Categoria modificada correctament']);
