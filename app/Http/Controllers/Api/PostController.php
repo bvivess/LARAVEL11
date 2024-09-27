@@ -53,7 +53,8 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    // public function update(PostRequest $request, Post $post)
+    public function update(GuardarPostRequest $request, Post $post)
     {
         $post->update($request->all());
         return (new PostResource($post))->additional(['meta' => 'Post modificat correctament']);

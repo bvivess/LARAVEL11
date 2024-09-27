@@ -13,12 +13,12 @@ Route::get('/user', function (Request $request) {
 
 // Noves rutes
 Route::apiResource('/post', PostController::class);  // Les tracta totes
-// Route::get('/posts', [PostController::class, 'index']); // Mostrar tots els posts
-// Route::post('/posts', [PostController::class, 'store']); // Crear un nou post
-// Route::get('/posts/{post}', [PostController::class, 'show']); // Mostrar un post específic
-// Route::put('/posts/{post}', [PostController::class, 'update']); // Actualitzar un post
-// Route::patch('/posts/{post}', [PostController::class, 'update']); // Actualitzar parcialment un post
-// Route::delete('/posts/{post}', [PostController::class, 'destroy']); // Eliminar un post
+// Route::get('/post', [PostController::class, 'index']); // Mostrar tots els posts
+// Route::post('/post', [PostController::class, 'store']); // Crear un nou post
+// Route::get('/post/{post}', [PostController::class, 'show']); // Mostrar un post específic
+// Route::put('/post/{post}', [PostController::class, 'update']); // Actualitzar un post
+// Route::patch('/post/{post}', [PostController::class, 'update']); // Actualitzar parcialment un post
+// Route::delete('/post/{post}', [PostController::class, 'destroy']); // Eliminar un post
 Route::get('/prova', [PostController::class, 'prova']);  // PER EXEMPLE
 
 Route::apiResource('/category', CategoryController::class);
