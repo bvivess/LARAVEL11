@@ -16,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(3);
+        //$posts = Post::all();
         // $posts = Post::with(["user", "category"])->get();  // post amb les taules relacionades
         //return response()->json($posts);  // --> torna una resposta serialitzada en format 'json'
         return (PostResource::collection($posts))->additional(['meta' => 'Posts mostrats correctament']);  // torna una resposta personalitzada
@@ -34,7 +35,8 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(GuardarPostRequest $request)  // Request $request
+    // public function store(Request $request $request)
+    public function store(GuardarPostRequest $request)
     {
         $data = $request->all();
         $data["user_id"] = User::all()->random()->id;  // cal modificar per l'usuari connectat
