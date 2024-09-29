@@ -16,8 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(3);
-        //$posts = Post::all();
+        // $posts = Post::paginate(3);  // crea una sortida amb paginació
+        $posts = Post::all();
         // $posts = Post::with(["user", "category"])->get();  // post amb les taules relacionades
         //return response()->json($posts);  // --> torna una resposta serialitzada en format 'json'
         return (PostResource::collection($posts))->additional(['meta' => 'Posts mostrats correctament']);  // torna una resposta personalitzada
