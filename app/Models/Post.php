@@ -14,7 +14,9 @@ class Post extends Model
 {
     use HasFactory;
 
-    // atributs intertables de manera massiva; associat al mètode 'Post::create()'
+    // protected $table = 'NomTaula';  // Si la taula i el model no segueixen la convenció de Laravel
+
+    // Atributs que es poden emplenar de manera automàtica: associat al mètode 'Post::create()'
     protected $fillable = [ 
         'title',
         'url_clean',
@@ -22,11 +24,12 @@ class Post extends Model
         'user_id',
     ];
 
+    // Atributs que no es poden emplenar de manera automàtica
     protected $guarded = [
         'id'
     ];
 
-    // relacions entre taules
+    // Relacions entre taules
     public function category()
     {
       return $this->belongsTo(Category::class);
@@ -46,6 +49,7 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    // Exemple d'ús: per emprar amb ->with()
     public function commentsFamosos()
     {
         return $this->hasMany(Comment::class)->wherein('user_id', [4, 8 ,9]);  // per exemple
